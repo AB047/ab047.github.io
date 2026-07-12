@@ -1,7 +1,7 @@
 'use client'
-import { Icon } from '@iconify/react/dist/iconify.js'
-import Link from 'next/link'
 import { useState } from 'react'
+
+const CONTACT_EMAIL = 'atulmb99@gmail.com'
 
 function ContactForm() {
   const [formData, setFormData] = useState({
@@ -10,10 +10,9 @@ function ContactForm() {
     phone: '',
     purpose: '',
     message: '',
-    honeypot: '', 
+    honeypot: '',
   })
   const [submitted, setSubmitted] = useState(false)
-  const [loader, setLoader] = useState(false)
   const [errors, setErrors] = useState<{ [key: string]: string }>({})
 
   const validate = () => {
@@ -49,7 +48,7 @@ function ContactForm() {
     })
   }
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault()
     setErrors({})
     const validationErrors = validate()
@@ -57,29 +56,20 @@ function ContactForm() {
       setErrors(validationErrors)
       return
     }
-    setLoader(true)
 
-    fetch('https://formsubmit.co/ajax/5bb07cd95ae94caca3e577757ceb8f75', {
-      method: 'POST',
-      headers: { 'Content-type': 'application/json' },
-      body: JSON.stringify({
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        purpose: formData.purpose,
-        message: formData.message,
-        _honey: formData.honeypot, // honeypot field for bots
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setSubmitted(data.success)
-        reset()
-      })
-      .catch((error) => {
-        setErrors({ submit: 'Something went wrong. Please try again.' })
-      })
-      .finally(() => setLoader(false))
+    const subject = `Portfolio contact from ${formData.name}`
+    const body = [
+      `Name: ${formData.name}`,
+      `Email: ${formData.email}`,
+      `Phone: ${formData.phone}`,
+      `Purpose: ${formData.purpose}`,
+      '',
+      formData.message,
+    ].join('\n')
+
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    setSubmitted(true)
+    reset()
   }
 
   return (
@@ -97,9 +87,20 @@ function ContactForm() {
               </h2>
             </div>
             {submitted ? (
-              // ...success message (unchanged)
-              <div className='flex flex-col items-center gap-5 text-center max-w-xl mx-auto p-6 rounded-lg bg-green/20 dark:bg-white/5'>
-                {/* ... */}
+              <div className='flex flex-col items-center gap-3 text-center max-w-xl mx-auto p-6 rounded-lg bg-green/20 dark:bg-white/5'>
+                <p className='font-medium text-dark_black dark:text-white'>Your email client should have opened.</p>
+                <p className='text-sm text-dark_black/70 dark:text-white/70'>
+                  If it didn&apos;t, email me directly at{' '}
+                  <a href={`mailto:${CONTACT_EMAIL}`} className='underline'>
+                    {CONTACT_EMAIL}
+                  </a>
+                  .
+                </p>
+                <button
+                  onClick={() => setSubmitted(false)}
+                  className='text-sm underline text-dark_black/60 dark:text-white/60'>
+                  Send another message
+                </button>
               </div>
             ) : (
               <form
@@ -143,7 +144,7 @@ function ContactForm() {
                       onChange={handleChange}
                       placeholder='Enter your email'
                       required autoComplete='email' aria-live="polite"
-                    /> 
+                    />
                     {errors.email && <span className="text-red-500 text-xs">{errors.email}</span>}
                   </div>
                 </div>
@@ -196,48 +197,36 @@ function ContactForm() {
                 </div>
                 {errors.submit && <span className="text-red-500 text-xs">{errors.submit}</span>}
                 <div>
-                  {!loader ? (
-                     <button
-                      type='submit'
-                      className='group w-fit text-white dark:text-dark_black font-medium bg-dark_black dark:bg-white rounded-full flex items-center gap-4 py-2 pl-5 pr-2 transition-all duration-200 ease-in-out  hover:bg-transparent border hover:text-dark_black border-dark_black cursor-pointer'>
-                      <span className='transform transition-transform duration-200 ease-in-out group-hover:translate-x-10'>
-                        Submit
-                      </span>
-                      <svg
+                  <button
+                    type='submit'
+                    className='group w-fit text-white dark:text-dark_black font-medium bg-dark_black dark:bg-white rounded-full flex items-center gap-4 py-2 pl-5 pr-2 transition-all duration-200 ease-in-out  hover:bg-transparent border hover:text-dark_black border-dark_black cursor-pointer'>
+                    <span className='transform transition-transform duration-200 ease-in-out group-hover:translate-x-10'>
+                      Submit
+                    </span>
+                    <svg
+                      width='32'
+                      height='32'
+                      viewBox='0 0 32 32'
+                      fill='none'
+                      xmlns='http://www.w3.org/2000/svg'
+                      className='transform transition-transform duration-200 ease-in-out group-hover:-translate-x-36 group-hover:rotate-45'>
+                      <rect
                         width='32'
                         height='32'
-                        viewBox='0 0 32 32'
-                        fill='none'
-                        xmlns='http://www.w3.org/2000/svg'
-                        className='transform transition-transform duration-200 ease-in-out group-hover:-translate-x-36 group-hover:rotate-45'>
-                        <rect
-                          width='32'
-                          height='32'
-                          rx='16'
-                          fill='white'
-                          className='fill-white dark:fill-black transition-colors duration-200 ease-in-out group-hover:fill-black '
-                        />
-                        <path
-                          d='M11.832 11.3334H20.1654M20.1654 11.3334V19.6668M20.1654 11.3334L11.832 19.6668'
-                          stroke='#1B1D1E'
-                          strokeWidth='1.42857'
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          className='stroke-dark_black dark:stroke-white transition-colors duration-200 ease-in-out group-hover:stroke-white'
-                        />
-                      </svg>
-                    </button>
-                  ) : (
-                    <button className='bg-grey item-center flex gap-2 py-3 px-7 rounded-sm'>
-                      <div
-                        className='animate-spin inline-block size-6 border-[3px] border-current border-t-transparent text-blue-600 rounded-full dark:text-blue-500'
-                        role='status'
-                        aria-label='loading'>
-                        <span className='sr-only'>Loading...</span>
-                      </div>{' '}
-                      Submitting
-                    </button>
-                  )}
+                        rx='16'
+                        fill='white'
+                        className='fill-white dark:fill-black transition-colors duration-200 ease-in-out group-hover:fill-black '
+                      />
+                      <path
+                        d='M11.832 11.3334H20.1654M20.1654 11.3334V19.6668M20.1654 11.3334L11.832 19.6668'
+                        stroke='#1B1D1E'
+                        strokeWidth='1.42857'
+                        strokeLinecap='round'
+                        strokeLinejoin='round'
+                        className='stroke-dark_black dark:stroke-white transition-colors duration-200 ease-in-out group-hover:stroke-white'
+                      />
+                    </svg>
+                  </button>
                 </div>
               </form>
             )}
