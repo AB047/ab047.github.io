@@ -20,9 +20,9 @@ const isInView = useInView(ref, { once: true });
         <div className='container'>
             <div className='flex justify-center'>
               <motion.div
-                  {...bottomAnimation(0)} className='flex flex-col justify-between max-w-2xl text-left gap-11 xl:gap-16 border border-dark_black/10 p-6 2xl:p-10 rounded-2xl bg-pale-yellow'>
-                <h3 className='text-dark_black'>About <span className='instrument-font italic font-normal dark:text-black/70'>Me!</span></h3>
-                <p className='text-lg text-justify text-dark_black leading-relaxed'>
+                  {...bottomAnimation(0)} className='glass-card flex flex-col justify-between max-w-2xl text-left gap-11 xl:gap-16 p-6 2xl:p-10 rounded-2xl'>
+                <h3 className='text-dark_black dark:text-white'>About <span className='instrument-font italic font-normal dark:text-white/70'>Me!</span></h3>
+                <p className='text-lg text-justify text-dark_black dark:text-white leading-relaxed'>
                   Hi, I&apos;m Atul, a software engineer at Panasonic Avionics building distributed, high-availability platforms &mdash; from serverless AWS backends and real-time Go services to full-stack passenger ecommerce experiences used by 10+ airline customers.
                   <br/><br/>
                   I care about system design, observability, and shipping reliable software quickly. I&apos;ve led incident response for high-availability production services, building Datadog dashboards, monitors, and runbooks that cut MTTR by 40%.</p>
