@@ -5,7 +5,7 @@ import { workExperience, education } from '@/app/content/site-data'
 
 function TimelineColumn({ heading, entries }: { heading: string; entries: typeof workExperience }) {
   return (
-    <div className='flex flex-col gap-6 max-w-xl border border-dark_black/10 dark:border-white/10 p-6 2xl:p-10 rounded-2xl bg-pale-yellow dark:bg-white/5'>
+    <div className='glass-card flex flex-col gap-6 max-w-xl p-6 2xl:p-10 rounded-2xl'>
       <h4 className='text-dark_black dark:text-white'>{heading}</h4>
       <div className='flex flex-col gap-8'>
         {entries.map((entry, index) => (
