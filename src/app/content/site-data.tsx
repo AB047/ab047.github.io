@@ -1,5 +1,5 @@
 import type { LucideIcon } from 'lucide-react'
-import { Network, Layers, Building2, Workflow, Bot } from 'lucide-react'
+import { Network, Layers, Building2, Workflow, Activity } from 'lucide-react'
 
 export type TechIconItem = {
   icon: string
@@ -53,7 +53,6 @@ export const techIconList: TechIconItem[] = [
   { icon: 'logos:javascript', title: 'JavaScript' },
   { icon: 'logos:go', title: 'Go' },
   { icon: 'logos:python', title: 'Python' },
-  { icon: 'logos:java', title: 'Java' },
   { icon: 'logos:react', title: 'React' },
   { icon: 'logos:nodejs-icon', title: 'Node.js' },
   { icon: 'logos:graphql', title: 'GraphQL' },
@@ -93,8 +92,8 @@ export const expertiseList: ExpertiseItem[] = [
     txt_color: 'text-green',
   },
   {
-    Icon: Bot,
-    title: 'AI-Augmented\nEngineering',
+    Icon: Activity,
+    title: 'Observability &\nIncident Response',
     bg_color: 'bg-pink/20',
     txt_color: 'text-pink',
   },
@@ -119,18 +118,6 @@ export const projectsList: ProjectItem[] = [
     tag: ['DBMS Laboratory Mini Project'],
     link: 'https://github.com/AB047/DBMS_TESTED',
   },
-  {
-    image: '/images/projects/data-visualizer.png',
-    title: 'Shared React + TypeScript Component Library',
-    tag: ['Storybook', 'CMS Integration', 'Panasonic Avionics'],
-    link: 'https://github.com/am11449',
-  },
-  {
-    image: '/images/projects/traffic-dbms.jpg',
-    title: 'Event-Driven Webhook Pipeline',
-    tag: ['AWS EventBridge', 'SQS', 'Panasonic Avionics'],
-    link: 'https://github.com/am11449',
-  },
 ]
 
 export const insightTagList: InsightTagItem[] = [
@@ -148,16 +135,15 @@ export const insightTagList: InsightTagItem[] = [
   },
   {
     icon: '/images/home/result/strategy.svg',
-    name: 'AI-Augmented Eng',
+    name: 'Reliability Engineering',
     bg_color: 'bg-orange/20',
     txt_color: 'text-orange',
   },
 ]
 
 export const insightCounters: CounterStat[] = [
-  { end: 13, suffix: '+', label: 'Airline Customers Served' },
-  { end: 99.9, decimals: 1, suffix: '%', label: 'Production Uptime' },
-  { end: 67, suffix: '%', label: 'Webhook Latency Cut' },
+  { end: 3, suffix: '+', label: 'Years of Experience' },
+  { end: 21, suffix: '+', label: 'Projects Shipped' },
 ]
 
 export const footerData = {
@@ -173,11 +159,6 @@ export const footerData = {
         icon: '/images/home/footerSocialIcon/github.svg',
         dark_icon: '/images/home/footerSocialIcon/github_dark.svg',
         link: 'https://github.com/am11449',
-      },
-      {
-        icon: '/images/home/footerSocialIcon/instagram.svg',
-        dark_icon: '/images/home/footerSocialIcon/instagram_dark.svg',
-        link: 'https://www.instagram.com/a_b047/',
       },
     ],
   },
@@ -214,6 +195,15 @@ export const workExperience: TimelineEntry[] = [
       'Owned multi-environment infrastructure provisioning with AWS CDK and CloudFormation, standardizing deployment pipelines across dev, staging, and production.',
       'Built end-to-end and integration test suites in Playwright integrated into CI/CD, reducing production regressions.',
       'Developed internal dashboards enabling airline partners to monitor passenger sessions, payments, and connectivity status in real time.',
+    ],
+  },
+  {
+    timeframe: 'May 2022 – July 2022',
+    title: 'Arthmetis, Charlotte, North Carolina, United States',
+    subtitle: 'Backend Development / Data Science Intern',
+    bullets: [
+      'Developed a web app with a Snowflake database using a Flask backend hosted on AWS EC2 to trace components of a manufactured product back to sellers, along with optimized sub-queries in SQL for tracking buyers for product recalls.',
+      'Designed a database with Snowflake warehousing to trace components of a manufactured product back to sellers, along with optimized sub-queries in SQL for tracking buyers for product recalls.',
     ],
   },
   {

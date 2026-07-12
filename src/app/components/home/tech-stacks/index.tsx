@@ -10,7 +10,7 @@ function TechStack() {
   const isInView = useInView(ref, { once: false }); // animate on enter/exit
 
   const languageIcons = techStackList.filter(item =>
-    ['TypeScript', 'JavaScript', 'Go', 'Python', 'Java', 'React', 'Node.js', 'GraphQL'].includes(item.title)
+    ['TypeScript', 'JavaScript', 'Go', 'Python', 'React', 'Node.js', 'GraphQL'].includes(item.title)
   );
   const toolsIcons = techStackList.filter(item =>
     ['AWS', 'PostgreSQL', 'Redis', 'Kafka', 'Docker', 'Datadog'].includes(item.title)
