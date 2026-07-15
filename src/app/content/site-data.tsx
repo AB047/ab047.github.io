@@ -100,25 +100,8 @@ export const expertiseList: ExpertiseItem[] = [
   },
 ]
 
+// Ordered reverse-chronologically (newest first, per GitHub created_at where known).
 export const projectsList: ProjectItem[] = [
-  {
-    image: '/images/projects/assistive-chatbot.jpg',
-    title: 'Assistive Chatbot for Visually Impaired',
-    tag: ['Final Year Capstone Project'],
-    link: 'https://github.com/am11449',
-  },
-  {
-    image: '/images/projects/data-visualizer.png',
-    title: 'Data Visualizer',
-    tag: ['Web Lab Mini Project'],
-    link: 'https://github.com/am11449',
-  },
-  {
-    image: '/images/projects/traffic-dbms.jpg',
-    title: 'Traffic Database Management System',
-    tag: ['DBMS Laboratory Mini Project'],
-    link: 'https://github.com/AB047/DBMS_TESTED',
-  },
   {
     title: 'CourseConnect — Course Management REST API',
     description:
@@ -134,13 +117,6 @@ export const projectsList: ProjectItem[] = [
     link: 'https://github.com/am11449/CCBD_Project',
   },
   {
-    title: 'Serverless Photo Search (AWS Lambda + Rekognition)',
-    description:
-      'A serverless photo indexing and natural-language search app built for a Cloud Computing course, using AWS Lambda functions with Rekognition for image tagging, deployed via CloudFormation and CodeBuild.',
-    tag: ['AWS Lambda', 'Rekognition', 'CloudFormation'],
-    link: 'https://github.com/am11449/cc2-lambda-fn',
-  },
-  {
     title: 'Serverless Spam Message Classifier',
     description:
       'An AWS Lambda function that classifies messages as spam or ham, deployed via CloudFormation as part of a cloud computing course assignment.',
@@ -148,11 +124,36 @@ export const projectsList: ProjectItem[] = [
     link: 'https://github.com/am11449/SpamDetect-Assignment3',
   },
   {
+    title: 'Serverless Photo Search (AWS Lambda + Rekognition)',
+    description:
+      'A serverless photo indexing and natural-language search app built for a Cloud Computing course, using AWS Lambda functions with Rekognition for image tagging, deployed via CloudFormation and CodeBuild.',
+    tag: ['AWS Lambda', 'Rekognition', 'CloudFormation'],
+    link: 'https://github.com/am11449/cc2-lambda-fn',
+  },
+  {
     title: 'NYC Accessible Street',
     description:
       'A team-built Django web app (Software Engineering course) for mapping street-accessibility issues around NYC, with CI/CD via Travis CI and Coveralls, deployed on AWS Elastic Beanstalk.',
     tag: ['Django', 'Team Project', 'CI/CD'],
     link: 'https://github.com/gcivil-nyu-org/team-1-inperson',
+  },
+  {
+    image: '/images/projects/assistive-chatbot.jpg',
+    title: 'Assistive Chatbot for Visually Impaired',
+    tag: ['Final Year Capstone Project'],
+    link: 'https://github.com/am11449',
+  },
+  {
+    image: '/images/projects/traffic-dbms.jpg',
+    title: 'Traffic Database Management System',
+    tag: ['DBMS Laboratory Mini Project'],
+    link: 'https://github.com/AB047/DBMS_TESTED',
+  },
+  {
+    image: '/images/projects/data-visualizer.png',
+    title: 'Data Visualizer',
+    tag: ['Web Lab Mini Project'],
+    link: 'https://github.com/am11449',
   },
 ]
 

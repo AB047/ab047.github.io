@@ -135,27 +135,33 @@ layer(base);
     position: relative;
     background: linear-gradient(
       135deg,
-      rgba(255, 255, 255, 0.35),
-      rgba(255, 255, 255, 0.08)
+      rgba(255, 255, 255, 0.55),
+      rgba(255, 255, 255, 0.18)
     );
     -webkit-backdrop-filter: blur(20px) saturate(160%);
     backdrop-filter: blur(20px) saturate(160%);
-    border: 1px solid rgba(255, 255, 255, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.45);
     box-shadow:
       0 8px 32px rgba(0, 0, 0, 0.12),
-      inset 0 1px 0 rgba(255, 255, 255, 0.4);
+      inset 0 1px 0 rgba(255, 255, 255, 0.5);
   }
 
   .dark .glass-card {
     background: linear-gradient(
       135deg,
-      rgba(255, 255, 255, 0.09),
-      rgba(255, 255, 255, 0.02)
+      rgba(255, 255, 255, 0.16),
+      rgba(255, 255, 255, 0.05)
     );
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.16);
     box-shadow:
       0 8px 32px rgba(0, 0, 0, 0.35),
-      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .project-card {
+    position: relative;
+    border-radius: 1.25rem;
+    padding: 2px;
   }
 }
 

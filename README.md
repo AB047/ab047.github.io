@@ -57,6 +57,19 @@ npm run build                    # static export, output in ./out
 `--legacy-peer-deps` is needed because the template pins React 18 while some dependencies declare newer
 peer ranges; `.npmrc` already sets this as the default so plain `npm install` works too.
 
+## Testing / visual verification
+
+```bash
+npm run test:e2e        # Playwright: page loads, sections render, no console errors, dark mode, contact form
+node e2e/visual-audit.mjs   # scrolls the whole page (light + dark) and saves full-page screenshots to /tmp
+                             # for manual visual review — run the dev server first
+```
+
+`e2e/site.spec.ts` boots the dev server itself (see `playwright.config.ts`) and is the regression check to
+run after any change. `e2e/visual-audit.mjs` is for eyeballing layout/animation changes — it deliberately
+scrolls step-by-step before screenshotting, since most sections use scroll-triggered (`useInView`)
+fade-in animations that stay invisible in a naive instant screenshot even though the site isn't broken.
+
 ## Deployment
 
 GitHub Pages only serves static files, so this repo builds a static export and publishes it to a
