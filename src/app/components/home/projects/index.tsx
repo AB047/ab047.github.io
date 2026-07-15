@@ -25,15 +25,21 @@ function Projects() {
                   <div
                     key={index}
                     className='group flex flex-col gap-6 cursor-pointer'>
-                    <div className='relative '>
-                      <Image
-                        src={items.image}
-                        alt={items.title}
-                        width={625}
-                        height={410}
-                        className='rounded-2xl'
-                        unoptimized={true}
-                      />
+                    <div className='relative'>
+                      {items.image ? (
+                        <Image
+                          src={items.image}
+                          alt={items.title}
+                          width={625}
+                          height={410}
+                          className='rounded-2xl'
+                          unoptimized={true}
+                        />
+                      ) : (
+                        <div className='glass-card flex items-center justify-center rounded-2xl w-full aspect-[625/410]'>
+                          <Icon icon='mdi:github' width='64' height='64' className='text-dark_black/40 dark:text-white/40' />
+                        </div>
+                      )}
 
                       {/* Overlay div */}
                       <Link
@@ -55,7 +61,12 @@ function Projects() {
                       <h5 className='group-hover:text-purple_blue'>
                         {items.title}
                       </h5>
-                      <div className='flex gap-3'>
+                      {items.description && (
+                        <p className='text-sm text-dark_black/70 dark:text-white/70'>
+                          {items.description}
+                        </p>
+                      )}
+                      <div className='flex gap-3 flex-wrap'>
                         {items.tag.map((tag, index) => (
                           <p
                             key={index}
