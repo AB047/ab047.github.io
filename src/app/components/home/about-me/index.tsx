@@ -23,9 +23,9 @@ const isInView = useInView(ref, { once: true });
                   {...bottomAnimation(0)} className='glass-card flex flex-col justify-between max-w-2xl text-left gap-11 xl:gap-16 p-6 2xl:p-10 rounded-2xl'>
                 <h3 className='text-dark_black dark:text-white'>About <span className='instrument-font italic font-normal dark:text-white/70'>Me!</span></h3>
                 <p className='text-lg text-justify text-dark_black dark:text-white leading-relaxed'>
-                  Hi, I&apos;m Atul, a software engineer at Panasonic Avionics building distributed, high-availability platforms &mdash; from serverless AWS backends and real-time Go services to full-stack passenger ecommerce experiences used by 10+ airline customers.
+                  I&apos;m passionate about building software that&apos;s exciting and impactful &mdash; solving problems at scale and crafting seamless, effortless experiences. My focus is cloud and backend engineering, but I also enjoy exploring frontend development through thoughtful UI/UX, all while keeping pace with the fast-evolving world of AI-assisted engineering.
                   <br/><br/>
-                  I care about system design, observability, and shipping reliable software quickly. I&apos;ve led incident response for high-availability production services, building Datadog dashboards, monitors, and runbooks that cut MTTR by 40%.</p>
+                  At Panasonic Avionics, I build distributed, high-availability platforms &mdash; from serverless AWS backends and real-time Go services to full-stack passenger ecommerce experiences used by 10+ airline customers. I&apos;ve also led incident response for production systems, building the dashboards and runbooks that cut MTTR by 40%.</p>
                    <div className="flex gap-4">
                     <a href="https://github.com/am11449" className="text-dark_black/60 dark:text-black/60 hover:text-sky-500 dark:hover:text-sky-400 text-2xl transition">
                       <FaGithub />
